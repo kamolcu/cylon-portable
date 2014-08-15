@@ -7,6 +7,7 @@ SET PATH=%SCRIPT%;%GIT_ENV%;%PATH%
 SET CURRENT_PATH=%~dp0
 SET CURRENT_DRIVE=%CURRENT_PATH:~0,2%
 
+python -m compileall
 REM ===== Update project-cylon
 pip install --upgrade project-cylon
 REM =====
