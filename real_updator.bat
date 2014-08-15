@@ -7,8 +7,8 @@ SET PATH=%SCRIPT%;%GIT_ENV%;%PATH%
 SET CURRENT_PATH=%~dp0
 SET CURRENT_DRIVE=%CURRENT_PATH:~0,2%
 %CURRENT_DRIVE%
-REM D:\cylon_portable\sanity
 cd "%~dp0..\sanity"
+rmdir /S /Q ".\itruemart-sanity"
 REM iTrueMart
 git clone https://chawiwan_nin@bitbucket.org/chawiwan_nin/itruemart-sanity.git
 REM welove
