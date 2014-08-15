@@ -11,6 +11,7 @@ SET CURRENT_DRIVE=%CURRENT_PATH:~0,2%
 python -m compileall
 REM ===== Update project-cylon
 "%SCRIPT%\pip.exe" uninstall behave -y
+"%SCRIPT%\pip.exe" install --upgrade behave
 "%SCRIPT%\pip.exe" install --upgrade project-cylon
 REM =====
 
