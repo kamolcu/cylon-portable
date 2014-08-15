@@ -10,7 +10,7 @@ SET CURRENT_DRIVE=%CURRENT_PATH:~0,2%
 
 python -m compileall
 REM ===== Update project-cylon
-pip install --upgrade project-cylon
+"%SCRIPT%\pip.exe" install --upgrade project-cylon
 REM =====
 
 
