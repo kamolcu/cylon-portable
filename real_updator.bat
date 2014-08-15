@@ -6,6 +6,12 @@ SET GIT_ENV=%~dp0..\App\GitPortable\App\Git\bin
 SET PATH=%SCRIPT%;%GIT_ENV%;%PATH%
 SET CURRENT_PATH=%~dp0
 SET CURRENT_DRIVE=%CURRENT_PATH:~0,2%
+
+REM ===== Update project-cylon
+pip install --upgrade project-cylon
+REM =====
+
+
 %CURRENT_DRIVE%
 cd "%~dp0..\sanity"
 rmdir /S /Q ".\itruemart-sanity"
