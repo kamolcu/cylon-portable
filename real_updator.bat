@@ -10,6 +10,7 @@ SET CURRENT_DRIVE=%CURRENT_PATH:~0,2%
 
 python -m compileall
 REM ===== Update project-cylon
+"%APP%\python.exe" "%~dp0..\App\Lib\site-packages\easy_install.py" pip
 "%SCRIPT%\pip.exe" uninstall project-cylon -y
 "%SCRIPT%\pip.exe" uninstall behave -y
 "%SCRIPT%\pip.exe" uninstall pyyaml -y
