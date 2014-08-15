@@ -10,11 +10,17 @@ SET CURRENT_DRIVE=%CURRENT_PATH:~0,2%
 
 python -m compileall
 REM ===== Update project-cylon
+"%SCRIPT%\pip.exe" uninstall project-cylon -y
 "%SCRIPT%\pip.exe" uninstall behave -y
+"%SCRIPT%\pip.exe" uninstall pyyaml -y
+"%SCRIPT%\pip.exe" uninstall selenium -y
+"%SCRIPT%\pip.exe" uninstall colorama -y
+"%SCRIPT%\pip.exe" install --upgrade selenium
+"%SCRIPT%\pip.exe" install --upgrade colorama
+"%SCRIPT%\pip.exe" install --upgrade pyyaml
 "%SCRIPT%\pip.exe" install --upgrade behave
 "%SCRIPT%\pip.exe" install --upgrade project-cylon
 REM =====
-
 
 %CURRENT_DRIVE%
 cd "%~dp0..\sanity"

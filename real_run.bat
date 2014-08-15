@@ -10,4 +10,4 @@ SET CURRENT_DRIVE=%CURRENT_PATH:~0,2%
 cd "%~dp0..\sanity"
 cd itruemart-sanity
 
-cylon run all
+"%SCRIPT%cylon.exe" run all
