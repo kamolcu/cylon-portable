@@ -1,8 +1,9 @@
 @ECHO OFF
 
+SET SITE_PACKAGES=%~dp0..\App\Lib\site-packages
 SET SCRIPT=%~dp0..\App\Scripts
-SET GIT_ENV=%~dp0..\App\GitPortable\App\Git\bin
-SET PATH=%SCRIPT%;%GIT_ENV%;%PATH%
+REM SET PATH=%SCRIPT%;%SITE_PACKAGES%;%GIT_ENV%;%PATH%
+REM SETX PATH "%SCRIPT%;%SITE_PACKAGES%;%PATH%"
 SET CURRENT_PATH=%~dp0
 SET CURRENT_DRIVE=%CURRENT_PATH:~0,2%
 
@@ -10,4 +11,5 @@ SET CURRENT_DRIVE=%CURRENT_PATH:~0,2%
 cd "%~dp0..\sanity"
 cd itruemart-sanity
 
-"%SCRIPT%cylon.exe" run all
+"%~dp0..\App\Scripts\cylon.exe" run all
+pause
