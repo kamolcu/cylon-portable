@@ -30,6 +30,6 @@ REM =====
 cd "%~dp0..\sanity"
 rmdir /S /Q ".\itruemart-sanity"
 REM iTrueMart
-git clone https://chawiwan_nin@bitbucket.org/chawiwan_nin/itruemart-sanity.git
+"%~dp0..\App\GitPortable\App\Git\bin\git.exe" clone https://chawiwan_nin@bitbucket.org/chawiwan_nin/itruemart-sanity.git
 REM welove
 REM git clone xxx
