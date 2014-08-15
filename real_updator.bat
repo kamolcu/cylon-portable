@@ -1,9 +1,10 @@
 @ECHO OFF
 REM Assume this file is in 'cylon-portable' directory
 
+SET APP=%~dp0..\App
 SET SCRIPT=%~dp0..\App\Scripts
 SET GIT_ENV=%~dp0..\App\GitPortable\App\Git\bin
-SET PATH=%SCRIPT%;%GIT_ENV%;%PATH%
+SET PATH=%APP%;%SCRIPT%;%GIT_ENV%;%PATH%
 SET CURRENT_PATH=%~dp0
 SET CURRENT_DRIVE=%CURRENT_PATH:~0,2%
 
