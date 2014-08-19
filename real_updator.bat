@@ -8,7 +8,26 @@ REM SET PATH=%APP%;%SCRIPT%;%GIT_ENV%;%PATH%
 SET CURRENT_PATH=%~dp0
 SET CURRENT_DRIVE=%CURRENT_PATH:~0,2%
 
+REM ===== Ansicon installation
 
+SET RegQry=HKLM\Hardware\Description\System\CentralProcessor\0
+REG.exe Query %RegQry% > checkOS.txt
+FIND /i "x86" < CheckOS.txt > StringCheck.txt
+IF %ERRORLEVEL% == 0 (
+    ECHO "This is 32 Bit Operating system"
+    SET PREFIX=x86
+) ELSE (
+    ECHO "This is 64 Bit Operating System"
+    SET PREFIX=x64
+)
+SET TARGETANSICONPATH=C:\ansicon\%PREFIX%
+IF NOT EXIST %TARGETANSICONPATH%(
+    MKDIR %TARGETANSICONPATH%
+)
+COPY /V /Y /Z "%CURRENT_PATH%ansicon\%PREFIX%\*.*" %TARGETANSICONPATH%
+%TARGETANSICONPATH%\ansicon.exe -i
+PAUSE
+EXIT
 REM ===== Update project-cylon
 "%APP%\python.exe" "%~dp0..\App\Lib\site-packages\easy_install.py" pip
 "%APP%\python.exe" "%~dp0..\App\Lib\site-packages\easy_install.py" six
