@@ -21,13 +21,13 @@ IF %ERRORLEVEL% == 0 (
     SET PREFIX=x64
 )
 SET TARGETANSICONPATH=C:\ansicon\%PREFIX%
-IF NOT EXIST %TARGETANSICONPATH%(
+IF NOT EXIST %TARGETANSICONPATH% (
     MKDIR %TARGETANSICONPATH%
 )
-COPY /V /Y /Z "%CURRENT_PATH%ansicon\%PREFIX%\*.*" %TARGETANSICONPATH%
+
+COPY /V /Y /Z "%CURRENT_PATH%ansicon\%PREFIX%\*.*" %TARGETANSICONPATH%"
 %TARGETANSICONPATH%\ansicon.exe -i
-PAUSE
-EXIT
+
 REM ===== Update project-cylon
 "%APP%\python.exe" "%~dp0..\App\Lib\site-packages\easy_install.py" pip
 "%APP%\python.exe" "%~dp0..\App\Lib\site-packages\easy_install.py" six
