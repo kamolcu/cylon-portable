@@ -20,13 +20,16 @@ IF %ERRORLEVEL% == 0 (
     ECHO "This is 64 Bit Operating System"
     SET PREFIX=x64
 )
+
 SET TARGETANSICONPATH=C:\ansicon\%PREFIX%
 IF NOT EXIST %TARGETANSICONPATH% (
     MKDIR %TARGETANSICONPATH%
 )
 
-COPY /V /Y /Z "%CURRENT_PATH%ansicon\%PREFIX%\*.*" %TARGETANSICONPATH%"
-%TARGETANSICONPATH%\ansicon.exe -i
+IF NOT EXIST %TARGETANSICONPATH%\ansicon.exe (
+    COPY /V /Y /Z "%CURRENT_PATH%ansicon\%PREFIX%\*.*" %TARGETANSICONPATH%"
+    %TARGETANSICONPATH%\ansicon.exe -i
+)
 
 REM ===== Update project-cylon
 "%APP%\python.exe" "%~dp0..\App\Lib\site-packages\easy_install.py" pip
@@ -46,8 +49,13 @@ REM =====
 
 %CURRENT_DRIVE%
 cd "%~dp0..\sanity"
+
+rmdir /S /Q ".\projectwls-sanity"
+REM welove
+"%~dp0..\App\GitPortable\App\Git\bin\git.exe" clone  https://sujitra_janleela@bitbucket.org/sujitra_janleela/projectwls-sanity.git
+
 rmdir /S /Q ".\itruemart-sanity"
 REM iTrueMart
 "%~dp0..\App\GitPortable\App\Git\bin\git.exe" clone https://chawiwan_nin@bitbucket.org/chawiwan_nin/itruemart-sanity.git
-REM welove
-REM git clone xxx
+
+
